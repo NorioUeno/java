@@ -1,0 +1,8 @@
+# 拡張子が「xlsx」のファイル
+*.xlsx
+
+# 「ddl」で始まるフォルダ
+ddl*/
+
+# VSCodeの設定
+.vscode/
