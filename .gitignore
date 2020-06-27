@@ -6,3 +6,6 @@ ddl*/
 
 # VSCodeの設定
 .vscode/
+
+# binファイル(特定のディレクトリを無視する場合は先頭と末尾に/をつける)
+/startForJava/processToString/bin/
