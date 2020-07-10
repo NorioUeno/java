@@ -1,6 +1,7 @@
 package practice2;
 
 import java.util.Date;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Book implements Comparable<Book>, Cloneable {
 
@@ -31,6 +32,13 @@ public class Book implements Comparable<Book>, Cloneable {
     return true;
 
   }
+
+  public int hashCode() {
+
+    return HashCodeBuilder.reflectionHashCode(this);
+
+  }
+
 
   public int compareTo(Book o) {
     return this.publishDate.compareTo(o.publishDate);
