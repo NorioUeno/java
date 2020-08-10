@@ -1,0 +1,5 @@
+#write
+#Fri Jul 24 18:11:59 JST 2020
+month=4
+year=1999
+day=21

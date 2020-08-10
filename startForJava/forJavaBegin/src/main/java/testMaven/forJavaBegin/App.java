@@ -3,7 +3,8 @@ package testMaven.forJavaBegin;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
-import practice2.LoggerBySingulation;
+import practice2.CountUpThred;
+import practice2.MyRunnableClass;
 
 /**
  * Hello world!.
@@ -273,10 +274,30 @@ public class App {
 //    lbs1.log("logmsg");
 //    LoggerBySingulation lbs2 = new LoggerBySingulation();
 //    lbs2.log("logmsg2");
-    LoggerBySingulation lbs = LoggerBySingulation.getInstance();
-    lbs.log("aaa");
-    LoggerBySingulation lbs2 = LoggerBySingulation.getInstance();
-    lbs2.log("bbb");
+//    LoggerBySingulation lbs = LoggerBySingulation.getInstance();
+//    lbs.log("aaa");
+//    LoggerBySingulation lbs2 = LoggerBySingulation.getInstance();
+//    lbs2.log("bbb");
+
+    // Practice 19 スレッド処理
+    // スレッド処理　Multithread threadクラス synchronized
+    Thread t1 = new CountUpThred();
+    Thread t2 = new CountUpThred();
+    Thread t3 = new CountUpThred();
+    t1.start();
+    t2.start();
+    t3.start();
+
+    //threadクラス + Runnableクラス
+    MyRunnableClass mrc = new MyRunnableClass();
+    Thread thread1 = new Thread(mrc);
+    Thread thread2 = new Thread(mrc);
+    thread1.start();
+    thread2.start();
+
+    //new Scanner(System.in).nextLine();
+
+
 
 
     System.out.println("★★★main:end★★★");

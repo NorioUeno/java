@@ -1,5 +1,8 @@
 practice/OriginalException.class
 practice/Practice14VariousAPI.class
+practice2/MyRunnableClass.class
+practice2/CounterThread.class
+practice2/CountUpThred.class
 practice/PoisonMatango.class
 practice/TangibleAsset.class
 practice2/KeyEnumTest.class
@@ -28,6 +31,7 @@ practice2/Calculator.class
 testMaven/forJavaBegin/App.class
 practice2/StrongBox$1.class
 practice2/StrongBox.class
+practice2/LoggerBySingulation.class
 practice2/Book.class
 practice/Wizard.class
 practice/Hero.class
