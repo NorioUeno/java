@@ -1,0 +1,5 @@
+designPatterns/iterator/Book.class
+designPatterns/iterator/Iterator.class
+designPatterns/iterator/Aggregate.class
+designPatterns/App.class
+designPatterns/iterator/BookShelf.class

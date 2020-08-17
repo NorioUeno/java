@@ -2,17 +2,21 @@ package testMaven.forJavaBegin;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Iterator;
-import java.util.Properties;
 import java.util.Scanner;
-import practice2.Book;
+import practice2.CountUpThred;
+import practice2.MyRunnableClass;
 
 /**
- * Hello world!
+ * Hello world!.
  * すっきりの練習問題
  *
  */
 public class App {
+  /**
+   * @param args
+   * @throws IOException
+   * @throws ParseException
+   */
   public static void main(String[] args) throws IOException, ParseException {
     System.out.println("★★★main:start★★★");
 
@@ -69,23 +73,23 @@ public class App {
      * System.out.println("aa");
      */
 
-    /*
-     * // practice 14
-     * Time t = new Time();
-     * t.timePrint();
-     * Practice14VariousAPI a = new Practice14VariousAPI();
-     * Practice14VariousAPI b = new Practice14VariousAPI();
-     * a.setAccountNumber("4649");
-     * a.setBalance(1592);
-     * a.acccountInfo();
-     * b.setAccountNumber(" 4649");
-     * b.setBalance(1592);
-     * b.acccountInfo();
-     * System.out.println(a.equals(b));
-     * if(a.equals(b) == true) {
-     * System.out.println("equal");
-     * }
-     */
+
+     // practice 14
+//     Time t = new Time();
+//     t.timePrint();
+//     * Practice14VariousAPI a = new Practice14VariousAPI();
+//     * Practice14VariousAPI b = new Practice14VariousAPI();
+//     * a.setAccountNumber("4649");
+//     * a.setBalance(1592);
+//     * a.acccountInfo();
+//     * b.setAccountNumber(" 4649");
+//     * b.setBalance(1592);
+//     * b.acccountInfo();
+//     * System.out.println(a.equals(b));
+//     * if(a.equals(b) == true) {
+//     * System.out.println("equal");
+//     * }
+//
 
     /*
      * // practice 15 exception
@@ -127,127 +131,187 @@ public class App {
      */
 
     /*
-    // practice4 controll instance
-    String pubDateStr = "2020-06-01";
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    Date pubDate = dateFormat.parse(pubDateStr);
-
-    String pubDateStr2 = "2019-06-02";
-    SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-    Date pubDate2 = dateFormat2.parse(pubDateStr2);
-
-    String pubDateStr3 = "2019-06-03";
-    SimpleDateFormat dateFormat3 = new SimpleDateFormat("yyyy-MM-dd");
-    Date pubDate3 = dateFormat3.parse(pubDateStr3);
-
-    Book b1 = new Book();
-    b1.setTitle("ueno");
-    b1.setPublishDate(pubDate);
-    b1.setComment("テストb1");
-
-    Book b2 = new Book();
-    b2.setTitle("ueno");
-    b2.setPublishDate(pubDate2);
-    b2.setComment("テストb2");
-
-    Book b3 = b2.clone();
-    b3.setPublishDate(new Date());
-
-    // call equals
-    // System.out.println(b1.equals(b2));
-
-    // use collection
-    // HashSet<Book> hb = new HashSet<Book>();
-    ArrayList<Book> hb = new ArrayList<Book>();
-    hb.add(b1);
-    hb.add(b2);
-    hb.add(b3);
-    for (Book a : hb) {
-//    System.out.println(a.compareTo(b1));
-      System.out.println(a.getPublishDate());
-    }
-
-    b2.setPublishDate(pubDate3);
-
-    // sort
-//    Collections.sort(hb, new Bookcomp());
-
-    for (Book a : hb) {
-      // System.out.println(a.compareTo(b1));
-      System.out.println(a.getPublishDate());
-    }
-    */
-
-    /*
-    // practice 2-5
-    // contents:enum gericsなど
-    StrongBox<String> sb = new StrongBox<String>(KeyEnumTest.PADLOCK,100);
-    sb.put("aaa");
-    System.out.println(sb.get());
-     *
+     * // practice2-4 controll instance
+     * String pubDateStr = "2020-06-01";
+     * SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+     * Date pubDate = dateFormat.parse(pubDateStr);
+     * String pubDateStr2 = "2019-06-02";
+     * SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+     * Date pubDate2 = dateFormat2.parse(pubDateStr2);
+     * String pubDateStr3 = "2019-06-03";
+     * SimpleDateFormat dateFormat3 = new SimpleDateFormat("yyyy-MM-dd");
+     * Date pubDate3 = dateFormat3.parse(pubDateStr3);
+     * Book b1 = new Book();
+     * b1.setTitle("ueno");
+     * b1.setPublishDate(pubDate);
+     * b1.setComment("テストb1");
+     * Book b2 = new Book();
+     * b2.setTitle("ueno");
+     * b2.setPublishDate(pubDate2);
+     * b2.setComment("テストb2");
+     * Book b3 = b2.clone();
+     * b3.setPublishDate(new Date());
+     * // call equals
+     * // System.out.println(b1.equals(b2));
+     * // use collection
+     * // HashSet<Book> hb = new HashSet<Book>();
+     * ArrayList<Book> hb = new ArrayList<Book>();
+     * hb.add(b1);
+     * hb.add(b2);
+     * hb.add(b3);
+     * for (Book a : hb) {
+     * // System.out.println(a.compareTo(b1));
+     * System.out.println(a.getPublishDate());
+     * }
+     * b2.setPublishDate(pubDate3);
+     * // sort
+     * // Collections.sort(hb, new Bookcomp());
+     * for (Book a : hb) {
+     * // System.out.println(a.compareTo(b1));
+     * System.out.println(a.getPublishDate());
+     * }
      */
 
     /*
-    // practice 2-6
-    // 1.関数オブジェクト
-    // 変数へのメソッド参照の格納
-    // 変数名 = クラス::そのクラスの静的メソッド
-    // SAMインターフェイスで型を定義する
-    FunclistIsOddIF funcOdd = FunclistLambda::isOdd;
-    System.out.println(funcOdd.call(6));
+     * // practice 2-5
+     * // contents:enum gericsなど
+     * StrongBox<String> sb = new StrongBox<String>(KeyEnumTest.PADLOCK,100);
+     * sb.put("aaa");
+     * System.out.println(sb.get());
+     */
 
-    Func2If func2 = FunclistLambda::addNamePrefix;
-    System.out.println(func2.call(false, "norio"));
+    /*
+     * // practice 2-6
+     * // 1.関数オブジェクト
+     * // 変数へのメソッド参照の格納
+     * // 変数名 = クラス::そのクラスの静的メソッド
+     * // SAMインターフェイスで型を定義する
+     * FunclistIsOddIF funcOdd = FunclistLambda::isOdd;
+     * System.out.println(funcOdd.call(6));
+     * Func2If func2 = FunclistLambda::addNamePrefix;
+     * System.out.println(func2.call(false, "norio"));
+     * // 変数名 = インスタンス変数名::そのクラスのメソッド名
+     * FunclistLambda sub = new FunclistLambda();
+     * IntBinaryOperator funcSub = sub::sub;
+     * System.out.println(funcSub.applyAsInt(5,8));
+     * //2.Lambda式
+     * FunclistIsOddIF func1lambda = (int x) -> {
+     * return (x % 2 == 1);
+     * };
+     * System.out.println(func1lambda.call(5));
+     * Func2If func2Lambda = (boolean male, String name) -> {
+     * if (male == true) {
+     * return "Mr." + name;
+     * } else {
+     * return "Ms." + name;
+     * }
+     * };
+     * System.out.println(func2Lambda.call(true, "ueno"));
+     */
 
-    // 変数名 = インスタンス変数名::そのクラスのメソッド名
-    FunclistLambda sub = new FunclistLambda();
-    IntBinaryOperator funcSub = sub::sub;
-    System.out.println(funcSub.applyAsInt(5,8));
+    /*
+     * // prctice2-7
+     * // JVM制御とリフレクション
+     * // JAVAのgetProperty setPropertyもあるよ
+     * System.out.println(System.getProperty("java.version"));
+     * Properties p = System.getProperties();
+     * Iterator<String> i = p.stringPropertyNames().iterator(); // iteratorパターン
+     * System.out.println("★システムプロパティ一覧★");
+     * while (i.hasNext()) {
+     * String key = i.next();
+     * System.out.print(key + "=");
+     * System.out.println(System.getProperty(key));
+     * }
+     * System.out.println("★★★★★★★★★");
+     * showMemory();
+     * // リフレクション:Classクラス 使い方
+     * Class<?> info1 = Book.class;
+     * System.out.println(info1.getSimpleName());
+     * System.out.println(info1.getName());
+     * System.out.println(info1.getSuperclass());
+     * System.out.println("★★★★★★★★★");
+     * UseReflection ur = new UseReflection(info1.getName(), "a");
+     * ur.classinfo();
+     */
 
-    //2.Lambda式
-    FunclistIsOddIF func1lambda = (int x) -> {
-      return (x % 2 == 1);
-    };
-    System.out.println(func1lambda.call(5));
+    // practice 2-8
+//    Book b2 = new Book();
+//    System.out.println(b2.hashCode());
 
-    Func2If func2Lambda = (boolean male, String name) -> {
-      if (male == true) {
-        return "Mr." + name;
-      } else {
-        return "Ms." + name;
-      }
-    };
-    System.out.println(func2Lambda.call(true, "ueno"));
-    *
+    /*
+     * //practice 2-9
+     * //テキストデータ読み書き
+     * // 読み込み read
+     * FileControl fcon = new FileControl();
+     * // fcread.fileread("/Users/aa572057/Documents/2019/07_Z-kai-local/z-kai_memo.md");
+     * // 書き込み write
+     * // FileControl fcWite = new FileControl();
+     * // fcWite.filewrite("/Users/aa572057/Documents/2019/07_Z-kai-local/a.text");
+     * // copy java.nio.file.Files
+     * // copy
+     * // Path copyfrom = Paths.get("/Users/aa572057/Documents/2019/07_Z-kai-local/z-kai_memo.md");
+     * // Path copyto = Paths.get("/Users/aa572057/Documents/2019/07_Z-kai-local/b.text");
+     * // copy java.nio.file.Filesクラスのcopyメソッド
+     * //copy(copyfrom,copyto);
+     * //FileOutputStream binry-data
+     * //FileInputStream fis = new FileInputStream("/Users/aa572057/Documents/2019/07_Z-kai-local/z-kai_memo.md");
+     * fcon.fileReadBin("/Users/aa572057/Documents/2019/07_Z-kai-local/z-kai_memo.md");
+     * fcon.filewritebin("/Users/aa572057/Documents/2019/07_Z-kai-local/c.text");
+     * // compression || decompression
+     * fcon.fileCompression("/Users/aa572057/Documents/2019/07_Z-kai-local/z-kai_memo.md",
+     * "/Users/aa572057/Documents/2019/07_Z-kai-local/d.text");
+     */
+
+    /*
+    // practice 2-10 様々なファイル形式
+    FileControl fc = new FileControl();
+    fc.writePropertyFile("/Users/aa572057/Documents/2019/07_Z-kai-local/propertyTest.text");
+    fc.readPropertyFile("/Users/aa572057/Documents/2019/07_Z-kai-local/propertyTest.text");
     */
 
-    //prctice2-7
-    // JVM制御とリフレクション
-    // JAVAのgetProperty setPropertyもあるよ
-    System.out.println(System.getProperty("java.version"));
-    Properties p = System.getProperties();
-    Iterator<String> i = p.stringPropertyNames().iterator(); //iteratorパターン
-    System.out.println("★システムプロパティ一覧★");
-    while(i.hasNext()){
-      String key = i.next();
-      System.out.print(key + "=");
-      System.out.println(System.getProperty(key));
-    }
+    // Practice 18-1 Design Pattern Singulation log　シングルトン
+//    LoggerBySingulation lbs1 = new LoggerBySingulation();
+//    lbs1.log("logmsg");
+//    LoggerBySingulation lbs2 = new LoggerBySingulation();
+//    lbs2.log("logmsg2");
+//    LoggerBySingulation lbs = LoggerBySingulation.getInstance();
+//    lbs.log("aaa");
+//    LoggerBySingulation lbs2 = LoggerBySingulation.getInstance();
+//    lbs2.log("bbb");
 
-    System.out.println("★★★★★★★★★");
+    // Practice 19 スレッド処理
+    // スレッド処理　Multithread threadクラス synchronized
+    Thread t1 = new CountUpThred();
+    Thread t2 = new CountUpThred();
+    Thread t3 = new CountUpThred();
+    t1.start();
+    t2.start();
+    t3.start();
 
-    // リフレクション:Classクラス
-    Class<?> info1 = Book.class;
-    System.out.println(info1.getSimpleName());
-    System.out.println(info1.getName());
-    System.out.println(info1.getSuperclass());
+    //threadクラス + Runnableクラス
+    MyRunnableClass mrc = new MyRunnableClass();
+    Thread thread1 = new Thread(mrc);
+    Thread thread2 = new Thread(mrc);
+    thread1.start();
+    thread2.start();
 
+    //new Scanner(System.in).nextLine();
 
 
 
 
     System.out.println("★★★main:end★★★");
 
+  }
+
+  /**
+   *
+   */
+  private static void showMemory() {
+    long free = Runtime.getRuntime().freeMemory();
+    long total = Runtime.getRuntime().totalMemory();
+    long usage = (total - free) / 1024 / 1024;
+    System.out.println("現在のメモリ使用量：" + usage + "MB");
   }
 
   /**
