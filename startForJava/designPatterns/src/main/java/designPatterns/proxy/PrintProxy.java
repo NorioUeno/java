@@ -1,14 +1,18 @@
 package designPatterns.proxy;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class PrintProxy implements Printable {
   private String name;
-  private Printer real;
+  private Printable real;
+  private String classname;
 
   public PrintProxy() {
   }
 
-  public PrintProxy(String name) {
+  public PrintProxy(String name, String classname) {
     this.name = name;
+    this.classname = classname;
   }
 
   @Override
@@ -27,12 +31,32 @@ public class PrintProxy implements Printable {
   @Override
   public void print(String string) {
     realize();
-    real.print(string);
+    try {
+      real.print(string);
+    } catch (IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+      // TODO 自動生成された catch ブロック
+      e.printStackTrace();
+    }
   }
 
+  @SuppressWarnings("deprecation")
   private synchronized void realize() {
     if (real == null) {
-      real = new Printer(name);
+      try {
+        // リフレクションを用いたインスタンスの生成
+        Class cl = Class.forName(classname);
+        real = (Printable)cl.newInstance();
+
+        //real = (Printable)Class.forName(classname).newInstance();
+        real.setPrinterName(name);
+      } catch (ClassNotFoundException e) {
+        // TODO 自動生成された catch ブロック
+        System.err.println("クラス" + classname + "が見つかりません。");
+        e.printStackTrace();
+      } catch (InstantiationException | IllegalAccessException e) {
+        // TODO 自動生成された catch ブロック
+        e.printStackTrace();
+      }
     }
   }
 

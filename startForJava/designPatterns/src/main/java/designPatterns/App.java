@@ -1,6 +1,7 @@
 package designPatterns;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import designPatterns.Bridge.CounttDisplay;
 import designPatterns.Bridge.Display;
@@ -17,9 +18,17 @@ import designPatterns.Composite.Directory;
 import designPatterns.Composite.File;
 import designPatterns.Composite.FileTreatmentException;
 import designPatterns.Facade.PageMaker;
+import designPatterns.Mediator.LoginFrame;
+import designPatterns.Observer.DigitObserver;
+import designPatterns.Observer.GraphObserver;
+import designPatterns.Observer.IncrementalNumberGenerator;
+import designPatterns.Observer.NumberGenerator;
+import designPatterns.Observer.Observer;
+import designPatterns.Observer.RandomNumberGenerator;
 import designPatterns.Singleton.Singleton;
 import designPatterns.Singleton.practice.TicketMaker;
 import designPatterns.Singleton.practice.Triple;
+import designPatterns.State.SafeFrame;
 import designPatterns.Stratery.Hand;
 import designPatterns.Stratery.Player;
 import designPatterns.Stratery.RandomStrategy;
@@ -31,15 +40,21 @@ import designPatterns.adapter.practice.FileIO;
 import designPatterns.adapter.practice.FileProperties;
 import designPatterns.adapter.usedByInstance.Print;
 import designPatterns.adapter.usedByInstance.PrintBanner;
+import designPatterns.command.mainApp;
 import designPatterns.factoryMethod.framework.Factory;
 import designPatterns.factoryMethod.framework.Product;
 import designPatterns.factoryMethod.idcard.IDCardFactory;
+import designPatterns.flyweight.BigString;
 import designPatterns.iterator.Book;
 import designPatterns.iterator.BookShelf;
 import designPatterns.iterator.Iterator;
+import designPatterns.memento.Gamer;
+import designPatterns.memento.Memento;
 import designPatterns.prototype.Manager;
 import designPatterns.prototype.MessageBox;
 import designPatterns.prototype.UnderlinePen;
+import designPatterns.proxy.PrintProxy;
+import designPatterns.proxy.Printable;
 import designPatterns.templateMethod.AbstractDisplay;
 import designPatterns.templateMethod.CharDisplay;
 import designPatterns.templateMethod.StringDisplay;
@@ -100,7 +115,28 @@ public class App {
     // chainOfResphosiblity();
 
     // 15 Facade
-    facade();
+    // facade();
+
+    // 16 Mediator
+    // mediator();
+
+    // 17 Observer
+//    observer();
+
+    // 18 Memento
+    // memento();
+
+    // 19 State
+    // state();
+
+    // 20.Flyweigh (fileの読み書きも)
+    // flyweight();
+
+    // 21 Proxy
+//    proxy();
+
+    //22 Command
+    command();
 
     System.out.println(BR + "★★★Main:End★★★");
 
@@ -400,7 +436,117 @@ public class App {
 
   public static void facade() {
     PageMaker.makeWelcomePage("hyuki@hyuki.com", "welcome.html");
+  }
 
+  public static void mediator() {
+    new LoginFrame("Mediator Sample");
+  }
+
+  public static void observer() {
+
+    // random
+    NumberGenerator generator = new RandomNumberGenerator();
+    Observer observer1 = new DigitObserver();
+    Observer observer2 = new GraphObserver();
+    generator.addObserver(observer1);
+    generator.addObserver(observer2);
+    generator.execute();
+
+    System.out.println("");
+    // Increment
+    NumberGenerator generator2 = new IncrementalNumberGenerator(10, 50, 5);
+    Observer observer3 = new DigitObserver();
+    Observer observer4 = new GraphObserver();
+    generator2.addObserver(observer1);
+    generator2.addObserver(observer2);
+    generator2.execute();
+
+  }
+
+  public static void memento() {
+    Gamer gamer = new Gamer(100);
+    Memento memento = gamer.createMemento();
+    for (int i = 0; i < 100; i++) {
+      System.out.println("====" + i);
+      System.out.println("現状" + gamer);
+
+      gamer.bet();
+      System.out.println("所持金は" + gamer.getMoney() + "円になりました。");
+
+      // Memento
+      if (gamer.getMoney() > memento.getMoney()) {
+        System.out.println("　　（だいぶふえたので現在の状態を保存）");
+        memento = gamer.createMemento();
+      } else if (gamer.getMoney() < memento.getMoney() / 2) {
+        System.out.println("　　（だいぶへったので以前の状態に復帰）");
+        gamer.restoreMemento(memento);
+      }
+
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+      }
+      System.out.println("");
+    }
+  }
+
+  public static void state() {
+    SafeFrame frame = new SafeFrame("State Sample");
+    while (true) {
+      for (int hour = 0; hour < 24; hour++) {
+        frame.setClock(hour);
+        try {
+          Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        }
+      }
+    }
+  }
+
+  public static void flyweight() {
+    // BigString bs = new BigString("1212123", true);
+    // bs.print();
+    System.out.println("共有した場合：");
+    testAllocation(true);
+
+    System.out.println("");
+    System.out.println("共有しない場合：");
+    testAllocation(false);
+  }
+
+  public static void testAllocation(boolean shared) {
+    BigString bs = new BigString("1212123", shared);
+    // BigString bs = new BigString("1212123", true);
+    showMemory();
+  }
+
+  public static void showMemory() {
+    Runtime.getRuntime().gc();
+    long total = Runtime.getRuntime().totalMemory();
+    long free = Runtime.getRuntime().freeMemory();
+    long used = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+
+    System.out.println("totalメモリ:" + total);
+    System.out.println("フリーメモリ:" + free);
+    System.out.println("使用メモリ:" + used);
+
+  }
+
+  public static void proxy() {
+    Printable p = new PrintProxy("Alice", "designPatterns.proxy.Printer");
+    System.out.println("名前は現在" + p.getPrinterName() + "です。");
+    p.setPrinterName("Bob");
+    System.out.println("名前は現在" + p.getPrinterName() + "です。");
+    try {
+      p.print("Hello, world.");
+    } catch (IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+      // TODO 自動生成された catch ブロック
+      e.printStackTrace();
+    }
+  }
+
+  public static void command() {
+    new mainApp("Command Pattern Sample");
   }
 
 }

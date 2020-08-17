@@ -15,7 +15,7 @@ public class PageMaker {
       String username = mailprop.getProperty(mailaddr);
       HtmlWriter writer = new HtmlWriter(new FileWriter(filename));
       writer.title("Welcome to " + username + "'s page!");
-      writer.paragraph(username + "のページへようこそ。");
+      writer.paragraph(username + "のページへようこそ!");
       writer.paragraph("メールまっています");
       writer.mailto(mailaddr, username);
       writer.close();

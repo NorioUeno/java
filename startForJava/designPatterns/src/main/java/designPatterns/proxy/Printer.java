@@ -4,6 +4,10 @@ public class Printer implements Printable {
 
   private String name;
 
+  public Printer() {
+    heavyJob("Printerのインスタンスを生成中");
+  }
+
   public Printer(String name) {
     this.name = name;
     heavyJob("Printerのインスタンスを生成中");
