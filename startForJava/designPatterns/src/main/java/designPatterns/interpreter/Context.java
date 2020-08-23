@@ -24,7 +24,7 @@ public class Context {
 
   public void skipToken(String token) throws ParseException {
     if (!token.equals(currentToken)) {
-      throw new ParseException("Warning:" + token + "is expected, but " + currentToken + "is found.");
+      throw new ParseException("Warning:" + token + " is expected, but " + currentToken + "is found.");
     }
     nextToken();
   }
@@ -37,6 +37,10 @@ public class Context {
       throw new ParseException("Warning: " + e);
     }
     return number;
+  }
+
+  public String currentToken() {
+    return currentToken;
   }
 
 }
