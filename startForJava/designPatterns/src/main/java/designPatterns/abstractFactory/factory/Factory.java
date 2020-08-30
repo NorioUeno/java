@@ -5,6 +5,7 @@ public abstract class Factory {
   public static Factory getfactory(String classname) {
     Factory factory = null;
     try {
+      // use reflection リフレクション
       factory = (Factory) Class.forName(classname).newInstance();
     } catch (ClassNotFoundException e) {
       System.err.println("クラス" + classname + "がみつかりません。");

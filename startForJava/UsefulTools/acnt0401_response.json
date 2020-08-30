@@ -1,0 +1,20 @@
+{
+    "code" : "AMEM001R001",
+    "message" : "Validation Error",
+    "component" : "MemberManagement",
+    "sqlcode" : "",
+    "validations" : [
+      {
+        "code" : "AMEM001M1001",
+        "field" : "memberID",
+        "message" : "Member ID must"
+      }]
+  }
+      ,
+      {
+        "code" : "AMEM001M1002",
+        "field" : "mdNo",
+        "message" : "MD No length is 6."
+      }
+    ]
+  }
