@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import useful.tools.UsefulTools.jsonParse.dto.ApiCommonRes;
 import useful.tools.UsefulTools.jsonParse.dto.Validations;
-import useful.tools.UsefulTools.jsonParse.service.JsonServices;
+import useful.tools.UsefulTools.restServices.client.ClientByJersey;
 
 /**
  * Hello world!
@@ -44,10 +44,20 @@ public class App {
     String jsonhoge = "[{\"id\":15, \"name\":\"hoge\"}, {\"id\":16, \"name\":\"fuga\"}]";
 
 //    ★Call jsonServeices
-    JsonServices.readJson(jsonhoge);
+//    JsonServices.readJson(jsonhoge);
 //    JsonServices.makeJson(json);
 //    JsonServices.makeJson(acr);
 //    JsonServices.readJsonFile("/Users/aa572057/Documents/GitHub/testJavaFirst/startForJava/UsefulTools/acnt0401_response.json");
+
+//    call apaach HttpclilentbyAppachHttpClient
+//    ClientServices cs = new ClientServices();
+//    cs.callGetByHttpClient("http://www.apache.org/");
+//    cs.callPostByHttpClient("http://scrs001-dv1.apps.ocptest.os.zkai.jp/courses/rules/ajbr0055");
+
+//    Use Jersey
+    ClientByJersey cb = new ClientByJersey();
+    cb.getMethod("https://www.google.com/");
+
 
     System.out.println("★★★End Main★★★");
 
