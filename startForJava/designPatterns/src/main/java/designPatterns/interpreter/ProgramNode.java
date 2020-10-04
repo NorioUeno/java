@@ -1,9 +1,11 @@
 package designPatterns.interpreter;
 
 //<program> ::= program<command list>
-public class ProgramNode {
+public class ProgramNode extends Node {
+
   private Node commandListNode;
-  public void parse(Context context) throws ParseException{
+
+  public void parse(Context context) throws ParseException {
     context.skipToken("program");
     commandListNode = new CommandListNode();
     commandListNode.parse(context);
@@ -11,7 +13,7 @@ public class ProgramNode {
 
   @Override
   public String toString() {
-    return "[program " + commandListNode +"]";
+    return "[program " + commandListNode + "]";
   }
 
 }

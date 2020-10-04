@@ -1,5 +1,7 @@
 package designPatterns;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -45,6 +47,8 @@ import designPatterns.factoryMethod.framework.Factory;
 import designPatterns.factoryMethod.framework.Product;
 import designPatterns.factoryMethod.idcard.IDCardFactory;
 import designPatterns.flyweight.BigString;
+import designPatterns.interpreter.Context;
+import designPatterns.interpreter.ProgramNode;
 import designPatterns.iterator.Book;
 import designPatterns.iterator.BookShelf;
 import designPatterns.iterator.Iterator;
@@ -118,7 +122,7 @@ public class App {
     // facade();
 
     // 16 Mediator
-    // mediator();
+     mediator();
 
     // 17 Observer
 //    observer();
@@ -135,8 +139,11 @@ public class App {
     // 21 Proxy
 //    proxy();
 
-    //22 Command
-    command();
+    // 22 Command
+//    command();
+
+//    33 Interpreter
+//    interpreter();
 
     System.out.println(BR + "★★★Main:End★★★");
 
@@ -549,4 +556,18 @@ public class App {
     new mainApp("Command Pattern Sample");
   }
 
+  public static void interpreter() {
+    try {
+      BufferedReader reader = new BufferedReader(new FileReader("program.txt"));
+      String text;
+      while ((text = reader.readLine()) != null) {
+        System.out.println("text = ¥" + text + "¥");
+        designPatterns.interpreter.Node node = new ProgramNode();
+        node.parse(new Context(text));
+        System.out.println("node = " + node);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }
