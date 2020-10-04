@@ -1,0 +1,7 @@
+## ch07.Book
+title:
+  Refactoring
+price: 4500
+author: ## ch07.author
+  firstName: Martin
+  lastName: Fowler

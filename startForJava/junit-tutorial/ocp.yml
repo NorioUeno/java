@@ -1,0 +1,20 @@
+kind: Project
+apiVersion: project.openshift.io/v1
+metadata:
+  name: dv1
+  selfLink: /apis/project.openshift.io/v1/projects/dv1
+  uid: 6c22ef91-229d-4834-9a1d-0235ad6f3c29
+  resourceVersion: '73775383'
+  creationTimestamp: '2020-07-02T14:17:22Z'
+  annotations:
+    openshift.io/description: ''
+    openshift.io/display-name: ''
+    openshift.io/requester: 08
+    openshift.io/sa.scc.mcs: 's0:c24,c19'
+    openshift.io/sa.scc.supplemental-groups: 1000590000/10000
+    openshift.io/sa.scc.uid-range: 1000590000/10000
+spec:
+  finalizers:
+    - kubernetes
+status:
+  phase: Active

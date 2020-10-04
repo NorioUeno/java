@@ -32,6 +32,10 @@ public class Calculator {
     return (float)x / (float)y;
   }
 
+  public int add(int x, int y) {
+    return x +y;
+  }
+
 
 
   public String getName() {
