@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.rules.TemporaryFolder;
 import org.junit.rules.TestName;
 import org.junit.rules.Timeout;
@@ -40,13 +41,24 @@ public class CalacRuleTest {
   @Rule //実行中のテストメソッド名を参照できる
   public TestName testName = new TestName();
 
-  @Test
+  @Rule
+  public ExpectedException expectedException = ExpectedException.none();
+
+  @Test(timeout = 300L)
   public void test() throws InterruptedException {
 //    Thread.sleep(10);
     Calculator calc = new Calculator();
     int expected = 5;
     int actual = calc.add(5, 0);
     assertThat(actual, is(expected));
+  }
+
+  @Test
+  public void ExMsg() throws Exception{
+    expectedException.expect(IllegalArgumentException.class);
+    expectedException.expectMessage("argument is null");
+    throw new IllegalArgumentException();
+
   }
 
 }
