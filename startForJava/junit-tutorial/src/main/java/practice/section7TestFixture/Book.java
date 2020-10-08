@@ -26,7 +26,6 @@ public class Book {
 //  }
 
 
-
   public int getTotalPraice() {
     return price;
   }
