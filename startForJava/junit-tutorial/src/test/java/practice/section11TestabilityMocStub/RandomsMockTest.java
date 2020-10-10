@@ -2,6 +2,7 @@ package practice.section11TestabilityMocStub;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.Test;
 
 public class RandomsMockTest {
@@ -15,6 +16,7 @@ public class RandomsMockTest {
     Randoms sut = new Randoms();
 
 //    モックの設定
+    final AtomicBoolean isCallNextIntMethod = new AtomicBoolean(false);
 
   }
 
