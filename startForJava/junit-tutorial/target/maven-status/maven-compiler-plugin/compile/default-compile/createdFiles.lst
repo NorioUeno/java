@@ -1,7 +1,14 @@
+MainApp.class
+practice/section11TestabilityMocStub/RandomNumberGenerator.class
+practice/section11TestabilityMocStub/Randoms.class
+practice/section11TestabilityMocStub/SpyLogger.class
 practice/section5TestRunner/ItemStock.class
 practice/section7TestFixture/Book.class
 practice/section5TestRunner/ItemStockImpl.class
 practice/section7TestFixture/LruCache.class
 practice/section1/Calculator.class
 practice/section7TestFixture/BookStore.class
+practice/section11TestabilityMocStub/RandomNumberGeneratorFixedResultStub.class
+practice/section11TestabilityMocStub/SpyExample.class
+practice/section11TestabilityMocStub/RandomNumberGeneratorImpl.class
 practice/section3Readability/TargetClass.class

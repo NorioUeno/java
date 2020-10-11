@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import practice.section11TestabilityMocStub.RandomNumberGenerator;
-import practice.section11TestabilityMocStub.RandomNumberGeneratorImpl;
-import practice.section11TestabilityMocStub.Randoms;
+import practice.section7TestFixture.mockit.Controller;
 
 public class MainApp {
 
@@ -32,13 +29,17 @@ public class MainApp {
 
 //    Section 11
 //    Make Random
-    RandomNumberGenerator rng = new RandomNumberGeneratorImpl();
-    System.out.println("Random : " + rng.nextInt());
+//    RandomNumberGenerator rng = new RandomNumberGeneratorImpl();
+//    System.out.println("Random : " + rng.nextInt());
+//
+//    Randoms randoms = new Randoms();
+//
+////    List<String> list = new ArrayList<String>();
+//    randoms.choice(new ArrayList<String>());
 
-    Randoms randoms = new Randoms();
-
-//    List<String> list = new ArrayList<String>();
-    randoms.choice(new ArrayList<String>());
+//    use mockit
+    Controller controller = new Controller();
+    System.out.println(controller.getContent(2));
 
 
   }
