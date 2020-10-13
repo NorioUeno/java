@@ -1,4 +1,4 @@
-import practice.section7TestFixture.mockit.Controller;
+import practice.training.no1SnakeCaseConversion.StringUtilsSnake;
 
 public class MainApp {
 
@@ -38,9 +38,12 @@ public class MainApp {
 //    randoms.choice(new ArrayList<String>());
 
 //    use mockit
-    Controller controller = new Controller();
-    System.out.println(controller.getContent(2));
+//    Controller controller = new Controller();
+//    System.out.println(controller.getContent(2));
 
+//    training1 StringUitls toSnake
+    StringUtilsSnake sus = new StringUtilsSnake();
+    System.out.println("Regex Result : " + StringUtilsSnake.toSnakeCase("AbCdE"));
 
   }
 

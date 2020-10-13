@@ -1,1 +1,9 @@
 /.metadata/
+
+# Maven
+junit-tutorial/target/
+
+
+# Java File
+*.class
+
