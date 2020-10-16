@@ -39,7 +39,7 @@ public class StringUtilsSnake {
 
     System.out.println(snake.replaceFirst("^_", "").toUpperCase());
 
-    return snake.replaceFirst("^_", "").toUpperCase();
+    return snake.replaceFirst("^_", "").toLowerCase();
 
 //   以下色々検証した。。
 //  snakeBF.append(m.replaceFirst("_" + m.group(0).toLowerCase()));
