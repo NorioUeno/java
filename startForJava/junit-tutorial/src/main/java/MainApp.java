@@ -1,8 +1,8 @@
-import practice.training.no1SnakeCaseConversion.StringUtilsSnake;
+import practice.training.no19_1FizzBuzz.FizzBuzz;
 
 public class MainApp {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     // TODO 自動生成されたメソッド・スタブ
 
     System.out.println("[junit-tutorial]");
@@ -42,8 +42,29 @@ public class MainApp {
 //    System.out.println(controller.getContent(2));
 
 //    training1 StringUitls toSnake
-    StringUtilsSnake sus = new StringUtilsSnake();
-    System.out.println("Regex Result : " + StringUtilsSnake.toSnakeCase("AbCdE"));
+//    StringUtilsSnake sus = new StringUtilsSnake();
+//    System.out.println("Regex Result : " + StringUtilsSnake.toSnakeCase("AbCdE"));
+
+//    training6 Thread
+//    final AtomicReference<String> backgroundThreadName = new AtomicReference<String>();
+//    final CountDownLatch latch = new CountDownLatch(1);
+//    Runnable task = new Runnable() {
+//      @Override
+//      public void run() {
+//        backgroundThreadName.set(Thread.currentThread().getName());
+//        latch.countDown();
+//        System.out.println(backgroundThreadName);
+//      }
+//    };
+//    BackgroundTask bt = new BackgroundTask(task);
+//    bt.invoke();
+//    latch.await();
+
+//    training 19-1 FizzBuzz
+//    FizzBuzz fb = new FizzBuzz();
+    FizzBuzz.createFizzBuzzList(16);
+
+
 
   }
 
