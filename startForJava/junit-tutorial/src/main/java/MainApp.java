@@ -1,8 +1,13 @@
-import practice.training.no19_1FizzBuzz.FizzBuzz;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 public class MainApp {
 
-  public static void main(String[] args) throws InterruptedException {
+  public static void main(String[] args) throws InterruptedException, IOException {
     // TODO 自動生成されたメソッド・スタブ
 
     System.out.println("[junit-tutorial]");
@@ -25,7 +30,6 @@ public class MainApp {
 //  try (InputStream in = Files.newInputStream(input)) {
 //      Yaml yaml = new Yaml();
 //      User user = yaml.loadAs(in, User.class);
-
 
 //    Section 11
 //    Make Random
@@ -62,9 +66,30 @@ public class MainApp {
 
 //    training 19-1 FizzBuzz
 //    FizzBuzz fb = new FizzBuzz();
-    FizzBuzz.createFizzBuzzList(16);
+//    FizzBuzz.createFizzBuzzList(16);
 
+//    training 19-2 csv inputStream
+    // file input Reader処理
+    InputStream is = new FileInputStream("employee.csv"); //バイト
+    Reader reader = new InputStreamReader(is); //文字
+    BufferedReader br = new BufferedReader(reader); //文字列
 
+//    読み込み行
+    String line;
+    String[] arr;
+
+    while((line = br.readLine()) != null) {
+      arr = line.split(",");
+      System.out.println("aaa:" + line);
+      System.out.println("aaa:" + arr[0]);
+    }
+
+//    int i = is.read();
+//    while (i != -1) {
+//      char c = (char) i;
+//      System.out.print(c);
+//      i = is.read();
+//    }
 
   }
 

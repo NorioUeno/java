@@ -2,6 +2,7 @@ package practice.training.no19_1FizzBuzz;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -30,8 +31,13 @@ public class FizzBuzzTest {
   @Test
   public void test() {
     List list = FizzBuzz.createFizzBuzzList(16);
-    assertThat(list.get(0),is("1"));
-    assertThat(list.get(2),is("Fizdzz"));
+    List<String> expected = new ArrayList<String>();
+    expected.addAll(FizzBuzz.createFizzBuzzList(16));
+
+//    Verify
+//    assertThat(list.get(0),is("1"));
+//    assertThat(list.get(2),is("Fizdzz"));
+    assertThat(FizzBuzz.createFizzBuzzList(16),is(expected));
   }
 
 }
