@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-import practice.section11TestabilityMocStub.RandomNumberGenerator;
-import practice.section11TestabilityMocStub.RandomNumberGeneratorImpl;
-import practice.section11TestabilityMocStub.Randoms;
+import java.io.FileInputStream;
+import java.io.IOException;
+import practice.training.no19_2JavaBeansCsvRead.Employee;
 
 public class MainApp {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException, IOException {
     // TODO 自動生成されたメソッド・スタブ
 
     System.out.println("[junit-tutorial]");
@@ -29,16 +28,49 @@ public class MainApp {
 //      Yaml yaml = new Yaml();
 //      User user = yaml.loadAs(in, User.class);
 
-
 //    Section 11
 //    Make Random
-    RandomNumberGenerator rng = new RandomNumberGeneratorImpl();
-    System.out.println("Random : " + rng.nextInt());
+//    RandomNumberGenerator rng = new RandomNumberGeneratorImpl();
+//    System.out.println("Random : " + rng.nextInt());
+//
+//    Randoms randoms = new Randoms();
+//
+////    List<String> list = new ArrayList<String>();
+//    randoms.choice(new ArrayList<String>());
 
-    Randoms randoms = new Randoms();
+//    use mockit
+//    Controller controller = new Controller();
+//    System.out.println(controller.getContent(2));
 
-//    List<String> list = new ArrayList<String>();
-    randoms.choice(new ArrayList<String>());
+//    training1 StringUitls toSnake
+//    StringUtilsSnake sus = new StringUtilsSnake();
+//    System.out.println("Regex Result : " + StringUtilsSnake.toSnakeCase("AbCdE"));
+
+//    training6 Thread
+//    final AtomicReference<String> backgroundThreadName = new AtomicReference<String>();
+//    final CountDownLatch latch = new CountDownLatch(1);
+//    Runnable task = new Runnable() {
+//      @Override
+//      public void run() {
+//        backgroundThreadName.set(Thread.currentThread().getName());
+//        latch.countDown();
+//        System.out.println(backgroundThreadName);
+//      }
+//    };
+//    BackgroundTask bt = new BackgroundTask(task);
+//    bt.invoke();
+//    latch.await();
+
+//    training 19-1 FizzBuzz
+//    FizzBuzz fb = new FizzBuzz();
+//    FizzBuzz.createFizzBuzzList(16);
+
+//    training 19-2 csv inputStream
+    // file input Reader処理
+    Employee.load(new FileInputStream("employee.csv"));
+//    InputStream is = new FileInputStream("employee.csv"); //バイト
+
+
 
 
   }

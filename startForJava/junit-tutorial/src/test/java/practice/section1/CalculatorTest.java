@@ -36,4 +36,10 @@ public class CalculatorTest {
     calc.divide(5, 0);
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void divide3() {
+    Calculator calc = new Calculator();
+    calc.divide(8,0);
+  }
+
 }
