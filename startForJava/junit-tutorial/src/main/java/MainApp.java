@@ -1,9 +1,6 @@
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import practice.training.no19_2JavaBeansCsvRead.Employee;
 
 public class MainApp {
 
@@ -70,26 +67,11 @@ public class MainApp {
 
 //    training 19-2 csv inputStream
     // file input Reader処理
-    InputStream is = new FileInputStream("employee.csv"); //バイト
-    Reader reader = new InputStreamReader(is); //文字
-    BufferedReader br = new BufferedReader(reader); //文字列
+    Employee.load(new FileInputStream("employee.csv"));
+//    InputStream is = new FileInputStream("employee.csv"); //バイト
 
-//    読み込み行
-    String line;
-    String[] arr;
 
-    while((line = br.readLine()) != null) {
-      arr = line.split(",");
-      System.out.println("aaa:" + line);
-      System.out.println("aaa:" + arr[0]);
-    }
 
-//    int i = is.read();
-//    while (i != -1) {
-//      char c = (char) i;
-//      System.out.print(c);
-//      i = is.read();
-//    }
 
   }
 

@@ -1,11 +1,15 @@
 package practice2;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
@@ -115,6 +119,36 @@ public class FileControl {
 
   // csv処理 library open-csv
   // https://qiita.com/sunnycloudy764/items/c117e769863dc96edc59
+  public void readCsvByInputStream() throws IOException {
+
+//    file input Reader処理
+    InputStream is = null;
+    try {
+//      InputStream取り込み use FileInputStream
+      is = new FileInputStream("employee.csv");
+//      InputStream取り込み2 use リフレクション
+//      InputStream is2 = getClass().getResourceAsStream("employee.csv");
+    } catch (FileNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } //バイト
+    Reader reader = new InputStreamReader(is); //文字
+    BufferedReader br = new BufferedReader(reader); //文字列
+
+//    読み込み行
+    String line;
+    String[] arr;
+
+    while((line = br.readLine()) != null) {
+      arr = line.split(",");
+      System.out.println("aaa:" + line);
+      System.out.println("aaa:" + arr[0]);
+    }
+
+
+
+
+  }
 
 
 
