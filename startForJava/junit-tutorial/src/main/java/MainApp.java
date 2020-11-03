@@ -1,7 +1,5 @@
 import java.io.IOException;
-import practice.training.no19_6Combination.ApplicationServer;
-import practice.training.no19_6Combination.DataBase;
-import practice.training.no19_6Combination.Frameworks;
+import practice.training.no20_2Log.LogAnalyzer;
 
 public class MainApp {
 
@@ -83,10 +81,14 @@ public class MainApp {
 //    ApplicationServer as = ApplicationServer.GlassFish;
 //    DataBase db = DataBase.DB2;
 //    Frameworks.isSupport(as, db);
-    Frameworks frameworks = new Frameworks();
-    ApplicationServer as = ApplicationServer.Tomcat;
-    DataBase db = DataBase.DB2;
-    System.out.println(frameworks.isSupport(as, db));
+//    Frameworks frameworks = new Frameworks();
+//    ApplicationServer as = ApplicationServer.Tomcat;
+//    DataBase db = DataBase.DB2;
+//    System.out.println(frameworks.isSupport(as, db));
+
+//    training 20-2 log
+    LogAnalyzer sut = new LogAnalyzer();
+    sut.analyze("");
 
   }
 

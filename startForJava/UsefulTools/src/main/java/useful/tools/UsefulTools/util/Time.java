@@ -1,4 +1,4 @@
-package processToString;
+package useful.tools.UsefulTools.util;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -7,10 +7,8 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
-public class time {
-  /**
-   * time取得
-   */
+public class Time {
+
   public void timePrint() {
 
     // getdate()
@@ -19,11 +17,11 @@ public class time {
     long time = now.getTime();
     Timestamp ts = new Timestamp(time);
 
-    // 時刻データ表示
+    //時刻データ表示
     System.out.println(jst); // 2020-07-09T09:43:48.801
-    System.out.println(now); // 英語風 : Thu Jul 09 09:38:00 JST 2020
-    System.out.println(time); // long型 1594255328850
-    System.out.println(ts); // log系 : 2020-07-09 09:38:00.721
+    System.out.println(now); //英語風 : Thu Jul 09 09:38:00 JST 2020
+    System.out.println(time); //long型 1594255328850
+    System.out.println(ts); //log系 : 2020-07-09 09:38:00.721
 
     // 整形処理
     // 取得した日時情報をcalendarにセット
@@ -47,33 +45,45 @@ public class time {
     System.out.println(day);
   }
 
-  public static Timestamp getDate() {
+  public static Timestamp getDate () {
     Date now = new Date();
     long time = now.getTime();
     Timestamp ts = new Timestamp(time);
-    return (ts);
+    return(ts);
   }
+  /**
+   * システム日付を基準に月末までの日数を取得する
+   * @return
+   */
+  public int getRemainingDaysFromThisMonth() {
 
-  public static int getRemainingDaysfromThisMonth() {
-
-//  getDate
+//    getDate
     LocalDateTime jst = LocalDateTime.now();
     Date now = new Date();
     long time = now.getTime();
     Timestamp ts = new Timestamp(time);
 
-    // 日付取得
+    System.out.println(ts);
+    System.out.println(jst);
+
+//    日付取得
     Calendar c = Calendar.getInstance();
     c.setTime(now);
     int day = c.get(Calendar.DAY_OF_MONTH);
     int lastDayofMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-//  演算 used by BigDecimal
+    System.out.println(day);
+    System.out.println(lastDayofMonth);
+
+//    演算 used by BigDecimal
     BigDecimal dayf = new BigDecimal(Float.valueOf(day));
     BigDecimal lastDayofMonthf = new BigDecimal(Float.valueOf(lastDayofMonth));
     BigDecimal substract = lastDayofMonthf.subtract(dayf);
 
+    System.out.println(substract.intValue());
+
     return substract.intValue();
   }
+
 
 }
