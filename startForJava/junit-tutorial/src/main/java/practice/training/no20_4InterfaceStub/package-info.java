@@ -1,0 +1,1 @@
+package practice.training.no20_4InterfaceStub;
