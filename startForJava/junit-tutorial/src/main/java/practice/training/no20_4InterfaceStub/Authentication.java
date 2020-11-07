@@ -7,7 +7,7 @@ public class Authentication {
 
   public Account authenticate(String userId, String passward) {
 
-    if(accountDao.findOrNull(userId).equals(null)) {
+    if(accountDao.findOrNull(userId) == (null)) {
       return null;
     }
     if (account.getPassword().equals(passward)) {
