@@ -6,8 +6,9 @@ public class AccountDaoImp implements AccountDao {
 
   @Override
   public Account findOrNull(String userId) {
-    if (account.getName().equals(userId))
+    if (account.getName().equals(userId)) {
       return account;
+    }
     return null;
   }
 
