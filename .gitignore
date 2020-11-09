@@ -11,6 +11,6 @@ ddl*/
 /startForJava/processToString/bin/
 
 # targetなど
-target*/
-lib*/
+target/
+lib/
 
