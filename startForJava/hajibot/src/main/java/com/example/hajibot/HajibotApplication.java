@@ -11,7 +11,7 @@ public class HajibotApplication {
 
   @GetMapping("/")
   String home() {
-    System.out.println("aaa");
+    System.out.println("aaaa");
     return "Hello world!";
   }
 
