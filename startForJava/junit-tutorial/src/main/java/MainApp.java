@@ -1,6 +1,5 @@
-import java.io.FileInputStream;
 import java.io.IOException;
-import practice.training.no19_2JavaBeansCsvRead.Employee;
+import practice.training.no20_2Log.LogAnalyzer;
 
 public class MainApp {
 
@@ -67,11 +66,29 @@ public class MainApp {
 
 //    training 19-2 csv inputStream
     // file input Reader処理
-    Employee.load(new FileInputStream("employee.csv"));
+//    Employee.load(new FileInputStream("employee.csv"));
 //    InputStream is = new FileInputStream("employee.csv"); //バイト
 
+//    training 19-3 MultiString
+//    String[] array = { "hello", "world" };
+//    MultiLineString.join(array);
 
+//    training 19-4 Range-Constrains
+//    Range range = new Range(0.0,10.5);
+//    range.contains(0.0);
 
+//    training 19-6 Framework combination enum
+//    ApplicationServer as = ApplicationServer.GlassFish;
+//    DataBase db = DataBase.DB2;
+//    Frameworks.isSupport(as, db);
+//    Frameworks frameworks = new Frameworks();
+//    ApplicationServer as = ApplicationServer.Tomcat;
+//    DataBase db = DataBase.DB2;
+//    System.out.println(frameworks.isSupport(as, db));
+
+//    training 20-2 log
+    LogAnalyzer sut = new LogAnalyzer();
+    sut.analyze("");
 
   }
 
