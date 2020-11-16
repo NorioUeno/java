@@ -1,5 +1,8 @@
 package com.example.demo.section2;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class AddCalculator implements Calculator {
 
   @Override

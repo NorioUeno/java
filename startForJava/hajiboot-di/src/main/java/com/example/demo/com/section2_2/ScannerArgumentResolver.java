@@ -2,7 +2,9 @@ package com.example.demo.com.section2_2;
 
 import java.io.InputStream;
 import java.util.Scanner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ScannerArgumentResolver implements ArgumentResolver {
 
   @Override
