@@ -54,6 +54,8 @@ public class App {
 //    cb.getMethod("https://www.google.com/");
 
 
+    float a = -0.999999f;
+    System.out.println(String.valueOf(a));
 
 
     System.out.println("★★★End Main★★★");

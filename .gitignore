@@ -50,4 +50,6 @@ bin
 # Other
 *.log
 *.swp
-*.bak%  
+*.bak%
+startForJava/.DS_Store*/
+
