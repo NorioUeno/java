@@ -61,14 +61,14 @@ public class CustomerRepository {
 
 //      jdbcTemplate.update("INSERT INTO customers(first_name, last_name) values(:firstName, :lastName)", param);
     } else {
-      jdbcTemplate.update("UPDATE cusomers SET first_name=:firstName, last_name=:lastName WHERE id=:id", param);
+      jdbcTemplate.update("UPDATE CUSTOMERS SET first_name=:firstName, last_name=:lastName WHERE id=:id", param);
     }
     return customer;
   }
 
   public void delete(Integer customerId) {
     SqlParameterSource param = new MapSqlParameterSource().addValue("id", customerId);
-    jdbcTemplate.update("DELETE FROM customers WHERE id=:id", param);
+    jdbcTemplate.update("DELETE FROM CUSTOMERS WHERE id=:id", param);
   }
 
 }
