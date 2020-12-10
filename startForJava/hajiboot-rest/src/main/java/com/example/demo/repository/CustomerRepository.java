@@ -71,4 +71,9 @@ public class CustomerRepository {
     jdbcTemplate.update("DELETE FROM customers WHERE id=:id", param);
   }
 
+  public void deleteAll() {
+
+  }
+
+
 }
