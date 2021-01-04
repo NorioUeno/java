@@ -22,7 +22,6 @@ public class FileControl {
   private String copyfrom;
   private String copyto;
 
-
 //  public Filecopy (String copyfrom,String copyto) {
 //
 //    this.copyfrom =copyfrom;
@@ -110,9 +109,9 @@ public class FileControl {
   public void writePropertyFile(String writefile) throws IOException {
     Writer fw = new FileWriter(writefile);
     Properties p = new Properties();
-    p.setProperty("bbb","test-bbb");
-    p.setProperty("ccc","ueno");
-    p.setProperty("ccc","yukawa");
+    p.setProperty("bbb", "test-bbb");
+    p.setProperty("ccc", "ueno");
+    p.setProperty("ccc", "yukawa");
     p.store(fw, "test");
     fw.close();
   }
@@ -131,15 +130,15 @@ public class FileControl {
     } catch (FileNotFoundException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
-    } //バイト
-    Reader reader = new InputStreamReader(is); //文字
-    BufferedReader br = new BufferedReader(reader); //文字列
+    } // バイト
+    Reader reader = new InputStreamReader(is); // 文字
+    BufferedReader br = new BufferedReader(reader); // 文字列
 
 //    読み込み行
     String line;
     String[] arr;
 
-    while((line = br.readLine()) != null) {
+    while ((line = br.readLine()) != null) {
       arr = line.split(",");
       System.out.println("aaa:" + line);
       System.out.println("aaa:" + arr[0]);
@@ -159,12 +158,26 @@ public class FileControl {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-
-
-
   }
 
+  public void standardInputFromConsole() {
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+    try {
+      String line;
+      while ((line = stdin.readLine()) != null) {
+          System.out.println(line);
+      }
 
+   // 標準入力から与えられる値が数値の場合は自ら変換する必要がある。
+      while ((line = stdin.readLine()) != null) {
+          int i = Integer.valueOf(line);
+          System.out.println(i);
+      }
 
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
 
 }
