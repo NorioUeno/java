@@ -9,6 +9,10 @@ public class ProcessString {
    *
    * @param args voidメイン
    */
+
+  // 改行コード取得
+  final static String BR = System.getProperty("line.separator");
+
   public static void main(String[] args) {
 
     // TODO 自動生成されたメソッド・スタブ
