@@ -1,11 +1,15 @@
 package useful.tools.UsefulTools.util;
 
+import java.util.List;
+
 public class ProcessString {
   /**
    * 文字処理
    * Todo
    * 1.基本的な文字列操作
    * 2.正規表現
+   * 3.昇順(バブルソート) ascending order
+   * 4.降順(バブルソート) reverse orde
    *
    * @param args voidメイン
    */
@@ -82,7 +86,7 @@ public class ProcessString {
    */
   public static void pternMaching(String word) {
 
-    // 英数字など [0-9]=¥d,[a-zA-Z_0-9]=¥w,空白文字=¥s
+    // 英数字など [0-9]=¥d,[a-zA-Z_0-9]=¥w,空白文字=[\\s]+
     System.out.println("英数字");
     System.out.println(word.matches("[A-Za-z1-9]{5}"));
 
@@ -101,10 +105,52 @@ public class ProcessString {
   }
 
   public static void splitWord(String splitwords) {
-
     String[] split = splitwords.split("[,:]");
 //    System.out.println(":"+split[0]+":"+split[1]);
     System.out.println(split[0]);
   }
 
-} // java end
+  /**
+   * ascending order 昇順
+   * @param sortKey
+   * @return
+   */
+  public static List<Integer> sort(List<Integer> sortKey) {
+    Boolean sortJudge = true;
+    while (sortJudge) {
+      sortJudge = false;
+      for (int arrayIndex = 0; arrayIndex < sortKey.size() - 1; arrayIndex++) {
+        if (sortKey.get(arrayIndex) > sortKey.get(arrayIndex + 1)) {
+          Integer tmp = sortKey.get(arrayIndex);
+          sortKey.set(arrayIndex, sortKey.get(arrayIndex + 1));
+          sortKey.set(arrayIndex + 1, tmp);
+          sortJudge = true;
+        }
+      }
+    }
+    return sortKey;
+  }
+
+  /**
+   * 降順
+   * ※渡されたlistの引数を並べ替えると、returnしなくても並べ替えられてる。
+   * →同じメモリを見ているから。
+   * @param array
+   */
+  public static void reverseSort(List<Integer> array) {
+    boolean judge = true;
+    while (judge) {
+      judge = false;
+      for (int arrayNum = 0; arrayNum < array.size() - 1; arrayNum++) {
+        if (array.get(arrayNum) < array.get(arrayNum + 1)) {
+          int tmp = array.get(arrayNum);
+          array.set(arrayNum, array.get(arrayNum + 1));
+          array.set(arrayNum + 1, tmp);
+          judge = true;
+        }
+      }
+    }
+
+  }
+}
+// java end
