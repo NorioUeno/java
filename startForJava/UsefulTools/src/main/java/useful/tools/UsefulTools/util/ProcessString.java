@@ -1,6 +1,8 @@
 package useful.tools.UsefulTools.util;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProcessString {
   /**
@@ -8,6 +10,8 @@ public class ProcessString {
    * Todo
    * 1.基本的な文字列操作
    * 2.正規表現
+   *   1.String.class
+   *   2.java.util.regex.class
    * 3.昇順(バブルソート) ascending order
    * 4.降順(バブルソート) reverse orde
    *
@@ -82,10 +86,12 @@ public class ProcessString {
    * 2.インスタンスが無くても呼び出し可能
    * 3.インスタンス変数目.メッソッド名で呼び出し可能
    *
+   *
    * @param word
    */
   public static void pternMaching(String word) {
 
+//  1.String.classeの正規表現
     // 英数字など [0-9]=¥d,[a-zA-Z_0-9]=¥w,空白文字=[\\s]+
     System.out.println("英数字");
     System.out.println(word.matches("[A-Za-z1-9]{5}"));
@@ -102,7 +108,12 @@ public class ProcessString {
     // 任意の１文字文字.(ピリオド) 直前の繰り返し(*)
     System.out.println("先頭^と末尾$");
     System.out.println(word.matches("^a.*a$"));
-  }
+
+//  2.java.util.regex.Pattern.classeを用いた正規表現
+    Pattern pattern = Pattern.compile("[a-z]{1,5}"); //n回以上m会未満の繰り返し
+    Matcher matcher = pattern.matcher("対象文字列");
+
+}
 
   public static void splitWord(String splitwords) {
     String[] split = splitwords.split("[,:]");

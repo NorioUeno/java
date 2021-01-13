@@ -17,6 +17,10 @@ import java.nio.file.Path;
 import java.util.Properties;
 import java.util.zip.GZIPOutputStream;
 
+/**
+ * @author aa572057
+ *
+ */
 public class FileControl {
 
   private String copyfrom;
@@ -160,6 +164,9 @@ public class FileControl {
     }
   }
 
+  /**
+   * 標準入力
+   */
   public void standardInputFromConsole() {
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     try {
