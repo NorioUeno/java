@@ -57,6 +57,8 @@ public class App {
     float a = -0.999999f;
     System.out.println(String.valueOf(a));
 
+    int price = 1234567;
+    System.out.println(String.format("%,d",price));
 
     System.out.println("★★★End Main★★★");
 

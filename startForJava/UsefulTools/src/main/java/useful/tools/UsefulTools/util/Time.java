@@ -7,6 +7,10 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * @author aa572057
+ * 参考：https://engineer-club.jp/java-date
+ */
 public class Time {
 
   public void timePrint() {
@@ -83,6 +87,10 @@ public class Time {
     System.out.println(substract.intValue());
 
     return substract.intValue();
+  }
+
+  public void getDateFromSec(int second) {
+
   }
 
 
