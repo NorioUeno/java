@@ -112,6 +112,7 @@ public class ProcessString {
 //  2.java.util.regex.Pattern.classeを用いた正規表現
     Pattern pattern = Pattern.compile("[a-z]{1,5}"); //n回以上m会未満の繰り返し
     Matcher matcher = pattern.matcher("対象文字列");
+    boolean a = matcher.matches();
 
 }
 
