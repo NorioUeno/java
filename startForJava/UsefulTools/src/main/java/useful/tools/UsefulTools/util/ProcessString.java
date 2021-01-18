@@ -13,7 +13,8 @@ public class ProcessString {
    *   1.String.class
    *   2.java.util.regex.class
    * 3.昇順(バブルソート) ascending order
-   * 4.降順(バブルソート) reverse orde
+   * 4.降順(バブルソート) reverse order
+   * 5.uniconde stringを辞書順か評価する
    *
    * @param args voidメイン
    */
@@ -162,7 +163,12 @@ public class ProcessString {
         }
       }
     }
-
   }
+
+  public static void lexicographically(String source, String dist) {
+    source.compareTo(dist); //辞書順の比較
+  }
+
+
 }
 // java end
