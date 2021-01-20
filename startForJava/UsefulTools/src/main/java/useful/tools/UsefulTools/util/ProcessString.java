@@ -13,7 +13,8 @@ public class ProcessString {
    *   1.String.class
    *   2.java.util.regex.class
    * 3.昇順(バブルソート) ascending order
-   * 4.降順(バブルソート) reverse orde
+   * 4.降順(バブルソート) reverse order
+   * 5.uniconde stringを辞書順か評価する
    *
    * @param args voidメイン
    */
@@ -112,6 +113,7 @@ public class ProcessString {
 //  2.java.util.regex.Pattern.classeを用いた正規表現
     Pattern pattern = Pattern.compile("[a-z]{1,5}"); //n回以上m会未満の繰り返し
     Matcher matcher = pattern.matcher("対象文字列");
+    boolean a = matcher.matches();
 
 }
 
@@ -161,7 +163,12 @@ public class ProcessString {
         }
       }
     }
-
   }
+
+  public static void lexicographically(String source, String dist) {
+    source.compareTo(dist); //辞書順の比較
+  }
+
+
 }
 // java end
