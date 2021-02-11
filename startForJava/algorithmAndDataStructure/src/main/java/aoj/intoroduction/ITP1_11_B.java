@@ -2,8 +2,13 @@ package aoj.intoroduction;
 
 import java.util.Scanner;
 
-public class ITP1_11_A {
-//  public class Main {
+/**
+ * dice 2.
+ *
+ * @author aa572057
+ *
+ */
+public class ITP1_11_B {
 
   public static void main(String[] args) {
 
@@ -12,13 +17,12 @@ public class ITP1_11_A {
     for (int diceNum = 0; diceNum < 6; diceNum++) {
       dice[diceNum] = scan.nextInt();
     }
-    String commands = scan.next();
-    String[] command = commands.split("");
-//    aaabbbbb
 
-
-    for(String c : command) {
-      switch (c) {
+    String rollingPattern = "";
+//    String rolling;
+    for (int rollingPatternLength = 0; rollingPatternLength < rollingPattern.length(); rollingPatternLength++) {
+//      rolling = rollingPattern.charAt(rollingPatternLength);
+      switch (rollingPattern.substring(rollingPatternLength,rollingPatternLength)) {
         case "S":
 //          System.out.println("s");
           dice = s(dice);
@@ -38,9 +42,8 @@ public class ITP1_11_A {
         default:
           break;
       }
-//      System.out.println(dice[0]);
+
     }
-    System.out.println(dice[0]);
 
   }
 
@@ -65,6 +68,7 @@ public class ITP1_11_A {
     dice[5] = tmp[2];
     return dice;
   }
+
   public static int[] w(int[] dice) {
     int tmp[] = dice.clone();
     dice[0] = tmp[2];
@@ -75,6 +79,7 @@ public class ITP1_11_A {
     dice[5] = tmp[3];
     return dice;
   }
+
   public static int[] n(int[] dice) {
     int tmp[] = dice.clone();
     dice[0] = tmp[1];
@@ -84,6 +89,24 @@ public class ITP1_11_A {
     dice[4] = tmp[0];
     dice[5] = tmp[4];
     return dice;
+
   }
 
+//  innner classテスト ロジックには関係なし
+  static class Dice {
+    int[] num;
+
+    Dice() {
+      num = new int[6];
+    }
+
+    public int[] setGetNum(int figiure0, int figiure1, int figiure2, int figiure3, int figiure4, int figiure5) {
+      String variable = "figiure";
+      for (int diceNum = 0; diceNum < 6; diceNum++) {
+        num[diceNum] = figiure1;
+      }
+      return num;
+    }
+
+  }
 }
