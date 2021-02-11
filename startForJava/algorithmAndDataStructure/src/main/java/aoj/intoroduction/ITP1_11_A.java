@@ -14,7 +14,7 @@ public class ITP1_11_A {
     }
     String commands = scan.next();
     String[] command = commands.split("");
-//    aaa
+//    aaabbbbb
 
 
     for(String c : command) {
