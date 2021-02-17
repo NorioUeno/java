@@ -17,34 +17,55 @@ public class ITP1_11_B {
     for (int diceNum = 0; diceNum < 6; diceNum++) {
       dice[diceNum] = scan.nextInt();
     }
+    String rollingPattern = "SSSSWSSSWSSSESSSESSSWSSS";
+//    String rollingPattern = "NNNNWNNNWNNNENNNENNNWNNN";
+    int[] diceOrg = dice.clone();
+    int q = scan.nextInt();
+    for (int qNum = 0; qNum < q; qNum++) {
+      int topFig = scan.nextInt();
+      int frontFig = scan.nextInt();
+//       System.out.println("Start topFig:" + topFig + " frontFig " + frontFig );
+      // String rolling;
+      for (int rollingPatternLength = 0; rollingPatternLength < rollingPattern
+          .length(); rollingPatternLength++) {
+        // System.out.println("rollingPatternLength :" + rollingPatternLength);
+        // System.out.println(rollingPattern.charAt(rollingPatternLength));
+        switch (String.valueOf(rollingPattern.charAt(rollingPatternLength))) {
+          case "S":
+            dice = s(dice);
+//            printDice("S", dice);
+            break;
+          case "E":
+            dice = e(dice);
+//            printDice("E", dice);
+            break;
+          case "W":
+            dice = w(dice);
+//            printDice("W", dice);
+            break;
+          case "N":
+            dice = n(dice);
+//            printDice("N", dice);
+            break;
+          default:
+            break;
+        }
+        if (dice[0] == topFig && dice[1] == frontFig) {
+          System.out.println(dice[2]);
+          dice = diceOrg.clone();
+          break;
+        }
 
-    String rollingPattern = "";
-//    String rolling;
-    for (int rollingPatternLength = 0; rollingPatternLength < rollingPattern.length(); rollingPatternLength++) {
-//      rolling = rollingPattern.charAt(rollingPatternLength);
-      switch (rollingPattern.substring(rollingPatternLength,rollingPatternLength)) {
-        case "S":
-//          System.out.println("s");
-          dice = s(dice);
-          break;
-        case "E":
-//          System.out.println("e");
-          dice = e(dice);
-          break;
-        case "W":
-//        System.out.println("w");
-          dice = w(dice);
-          break;
-        case "N":
-//        System.out.println("n");
-          dice = n(dice);
-          break;
-        default:
-          break;
       }
-
     }
+  }
 
+  public static void printDice(String rolling, int[] dice) {
+    System.out.print(rolling + ":");
+    for (int diceNum : dice) {
+      System.out.print(diceNum);
+    }
+    System.out.println();
   }
 
   public static int[] s(int[] dice) {
@@ -92,7 +113,7 @@ public class ITP1_11_B {
 
   }
 
-//  innner classテスト ロジックには関係なし
+  // innner classテスト ロジックには関係なし
   static class Dice {
     int[] num;
 
@@ -100,7 +121,8 @@ public class ITP1_11_B {
       num = new int[6];
     }
 
-    public int[] setGetNum(int figiure0, int figiure1, int figiure2, int figiure3, int figiure4, int figiure5) {
+    public int[] setGetNum(int figiure0, int figiure1, int figiure2, int figiure3, int figiure4,
+        int figiure5) {
       String variable = "figiure";
       for (int diceNum = 0; diceNum < 6; diceNum++) {
         num[diceNum] = figiure1;
