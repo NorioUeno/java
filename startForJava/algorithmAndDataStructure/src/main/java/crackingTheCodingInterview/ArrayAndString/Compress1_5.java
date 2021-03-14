@@ -24,6 +24,10 @@ public class Compress1_5 {
     }
     System.out.println(str.length() < sb.length() ? str :sb);
 //    return str.length() < sb.length() ? str :sb;
+
+  int position = 5; // 0101 の1の箇所を指す
+  int foo = 0;
+  foo = foo | 1 << position; // posの場所のbitを1に立てる
   }
 
 }
