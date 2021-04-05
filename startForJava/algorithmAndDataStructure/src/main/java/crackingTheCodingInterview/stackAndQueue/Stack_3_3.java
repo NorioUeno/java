@@ -1,5 +1,6 @@
 package crackingTheCodingInterview.stackAndQueue;
 
+import javax.swing.tree.TreeNode;
 
 public class Stack_3_3 extends Stack_0 {
 
@@ -41,6 +42,7 @@ public class Stack_3_3 extends Stack_0 {
       stackPrev = stackPrevs;
       stackNext = stackIndexs;
       // this.data = data;
+//      TreeNode tn = new TreeNode();
     }
 
     public void push(T item) {
