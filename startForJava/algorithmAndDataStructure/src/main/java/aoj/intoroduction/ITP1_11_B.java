@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * dice 2.
- *
+ * aa
  * @author aa572057
  *
  */
