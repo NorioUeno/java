@@ -7,7 +7,7 @@ public abstract class Person {
   String sex;
   int age;
   String responsible;
-  String roll;
+  Role roll;
 
   boolean isBusy = false;
 
